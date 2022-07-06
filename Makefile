@@ -10,13 +10,14 @@ down:  ## 開発環境を落とす
 test:  ## テストを実行する
 	./vendor/bin/sail test
 
+shell:  ## dockerのapp操作
+	./vendor/bin/sail shell
 
+mysql:  ## dockerのdb操作
+	./vendor/bin/sail mysql
 
-up:  ## 開発環境の立ち上げ
-	docker-compose up -d
+composer:  ## dockerのdb操作
+	./vendor/bin/sail composer install
 
-down:  ## 開発環境を落とす
-	docker-compose down
-
-test:  ## テストを実行する
-	./vendor/bin/sail test
+mysql:  ## dockerのdb操作
+	./vendor/bin/sail mysql
