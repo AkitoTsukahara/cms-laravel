@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Tweet;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\View;
 
 class IndexController extends Controller
 {
@@ -15,6 +16,6 @@ class IndexController extends Controller
      */
     public function __invoke(Request $request): string
     {
-        return 'Single Action';
+        return View::make('tweet.index', ['name' => 'laravel']);
     }
 }
