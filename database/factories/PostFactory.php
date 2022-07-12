@@ -17,7 +17,9 @@ class PostFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'title' => $this->faker->title(20),
+            'content' => $this->faker->realText(100),
+            'published_at' => now()
         ];
     }
 }
