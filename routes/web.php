@@ -22,3 +22,4 @@ Route::get('/svelte', fn() => view('home'));
 Route::get('/posts', \App\Http\Controllers\Post\IndexController::class);
 
 Route::get('/tweets', \App\Http\Controllers\Tweet\IndexController::class);
+Route::get('/tweets/list', \App\Http\Controllers\Tweet\ListController::class);
