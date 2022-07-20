@@ -20,6 +20,7 @@ Route::get('/', function () {
 Route::get('/svelte', fn() => view('home'));
 
 Route::get('/posts', \App\Http\Controllers\Post\IndexController::class);
+Route::get('/posts/list', \App\Http\Controllers\Post\ListController::class);
 
 Route::get('/tweets', \App\Http\Controllers\Tweet\IndexController::class);
 Route::get('/tweets/list', \App\Http\Controllers\Tweet\ListController::class);
