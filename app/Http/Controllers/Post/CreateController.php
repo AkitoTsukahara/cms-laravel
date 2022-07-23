@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Post;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Post\CreateRequest;
 use Illuminate\Http\Request;
 
 class CreateController extends Controller
@@ -13,7 +14,7 @@ class CreateController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function __invoke(Request $request)
+    public function __invoke(CreateRequest $request)
     {
         //
     }
