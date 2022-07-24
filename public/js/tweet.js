@@ -2169,6 +2169,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var svelte_internal__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! svelte/internal */ "./node_modules/svelte/internal/index.mjs");
 /* harmony import */ var _tweet_TweetList_svelte__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./tweet/TweetList.svelte */ "./resources/js/components/tweet/TweetList.svelte");
+/* harmony import */ var _tweet_Create_svelte__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./tweet/Create.svelte */ "./resources/js/components/tweet/Create.svelte");
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
@@ -2207,13 +2208,17 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
+
 function create_fragment(ctx) {
-  var div2;
+  var div3;
   var h1;
   var t1;
-  var div1;
+  var div2;
   var div0;
   var tweetlist;
+  var t2;
+  var div1;
+  var create;
   var current;
   var tweetlist_props = {};
   tweetlist = new _tweet_TweetList_svelte__WEBPACK_IMPORTED_MODULE_1__["default"]({
@@ -2221,55 +2226,96 @@ function create_fragment(ctx) {
   });
   /*tweetlist_binding*/
 
-  ctx[1](tweetlist);
+  ctx[2](tweetlist);
+  create = new _tweet_Create_svelte__WEBPACK_IMPORTED_MODULE_2__["default"]({
+    props: {
+      params:
+      /*params*/
+      ctx[1]
+    }
+  });
+  create.$on("article-saved", function () {
+    if ((0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.is_function)(
+    /*tweetList*/
+    ctx[0].getArticles))
+      /*tweetList*/
+      ctx[0].getArticles.apply(this, arguments);
+  });
   return {
     c: function c() {
-      div2 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.element)("div");
+      div3 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.element)("div");
       h1 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.element)("h1");
       h1.textContent = "Tweet タイトルです";
       t1 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.space)();
-      div1 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.element)("div");
+      div2 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.element)("div");
       div0 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.element)("div");
       (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.create_component)(tweetlist.$$.fragment);
-      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.attr)(div1, "class", "grid grid-cols-2 gap-7");
+      t2 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.space)();
+      div1 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.element)("div");
+      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.create_component)(create.$$.fragment);
+      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.attr)(h1, "class", "text-3xl mb-4");
+      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.attr)(div2, "class", "grid grid-cols-2 gap-7");
     },
     m: function m(target, anchor) {
-      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.insert)(target, div2, anchor);
-      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(div2, h1);
-      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(div2, t1);
-      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(div2, div1);
-      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(div1, div0);
+      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.insert)(target, div3, anchor);
+      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(div3, h1);
+      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(div3, t1);
+      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(div3, div2);
+      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(div2, div0);
       (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.mount_component)(tweetlist, div0, null);
+      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(div2, t2);
+      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(div2, div1);
+      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.mount_component)(create, div1, null);
       current = true;
     },
-    p: function p(ctx, _ref) {
+    p: function p(new_ctx, _ref) {
       var _ref2 = _slicedToArray(_ref, 1),
           dirty = _ref2[0];
 
+      ctx = new_ctx;
       var tweetlist_changes = {};
       tweetlist.$set(tweetlist_changes);
+      var create_changes = {};
+      if (dirty &
+      /*params*/
+      2) create_changes.params =
+      /*params*/
+      ctx[1];
+      create.$set(create_changes);
     },
     i: function i(local) {
       if (current) return;
       (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.transition_in)(tweetlist.$$.fragment, local);
+      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.transition_in)(create.$$.fragment, local);
       current = true;
     },
     o: function o(local) {
       (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.transition_out)(tweetlist.$$.fragment, local);
+      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.transition_out)(create.$$.fragment, local);
       current = false;
     },
     d: function d(detaching) {
-      if (detaching) (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.detach)(div2);
+      if (detaching) (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.detach)(div3);
       /*tweetlist_binding*/
 
-      ctx[1](null);
+      ctx[2](null);
       (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.destroy_component)(tweetlist);
+      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.destroy_component)(create);
     }
   };
 }
 
 function instance($$self, $$props, $$invalidate) {
   var tweetList;
+  var params = {
+    id: '',
+    title: '',
+    content: ''
+  };
+
+  var onEdit = function onEdit(e) {
+    $$invalidate(1, params = e.detail.tweet);
+  };
 
   function tweetlist_binding($$value) {
     svelte_internal__WEBPACK_IMPORTED_MODULE_0__.binding_callbacks[$$value ? 'unshift' : 'push'](function () {
@@ -2278,7 +2324,7 @@ function instance($$self, $$props, $$invalidate) {
     });
   }
 
-  return [tweetList, tweetlist_binding];
+  return [tweetList, params, tweetlist_binding];
 }
 
 var Tweet = /*#__PURE__*/function (_SvelteComponent) {
@@ -2300,6 +2346,424 @@ var Tweet = /*#__PURE__*/function (_SvelteComponent) {
 }(svelte_internal__WEBPACK_IMPORTED_MODULE_0__.SvelteComponent);
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Tweet);
+
+/***/ }),
+
+/***/ "./resources/js/components/tweet/Create.svelte":
+/*!*****************************************************!*\
+  !*** ./resources/js/components/tweet/Create.svelte ***!
+  \*****************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var svelte_internal__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! svelte/internal */ "./node_modules/svelte/internal/index.mjs");
+/* harmony import */ var svelte__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! svelte */ "./node_modules/svelte/index.mjs");
+function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); Object.defineProperty(subClass, "prototype", { writable: false }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf ? Object.setPrototypeOf.bind() : function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } else if (call !== void 0) { throw new TypeError("Derived constructors may only return object or undefined"); } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf.bind() : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+/* resources/js/components/tweet/Create.svelte generated by Svelte v3.49.0 */
+
+
+
+function create_if_block_2(ctx) {
+  var div;
+  var t;
+  return {
+    c: function c() {
+      div = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.element)("div");
+      t = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.text)(
+      /*resultMessage*/
+      ctx[1]);
+      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.attr)(div, "class", "text-green-700 p-3 bg-green-300 rounded mb-3");
+    },
+    m: function m(target, anchor) {
+      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.insert)(target, div, anchor);
+      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(div, t);
+    },
+    p: function p(ctx, dirty) {
+      if (dirty &
+      /*resultMessage*/
+      2) (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.set_data)(t,
+      /*resultMessage*/
+      ctx[1]);
+    },
+    d: function d(detaching) {
+      if (detaching) (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.detach)(div);
+    }
+  };
+} // (82:25) 
+
+
+function create_if_block_1(ctx) {
+  var button;
+  var mounted;
+  var dispose;
+  return {
+    c: function c() {
+      button = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.element)("button");
+      button.textContent = "変更する";
+      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.attr)(button, "type", "submit");
+      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.attr)(button, "class", "bg-blue-700 text-blue-50 p-2 rounded");
+    },
+    m: function m(target, anchor) {
+      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.insert)(target, button, anchor);
+
+      if (!mounted) {
+        dispose = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.listen)(button, "click",
+        /*onSubmit*/
+        ctx[4]);
+        mounted = true;
+      }
+    },
+    p: svelte_internal__WEBPACK_IMPORTED_MODULE_0__.noop,
+    d: function d(detaching) {
+      if (detaching) (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.detach)(button);
+      mounted = false;
+      dispose();
+    }
+  };
+} // (80:4) {#if isModeCreate}
+
+
+function create_if_block(ctx) {
+  var button;
+  var mounted;
+  var dispose;
+  return {
+    c: function c() {
+      button = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.element)("button");
+      button.textContent = "登録する";
+      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.attr)(button, "type", "submit");
+      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.attr)(button, "class", "bg-purple-700 text-purple-50 p-2 rounded");
+    },
+    m: function m(target, anchor) {
+      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.insert)(target, button, anchor);
+
+      if (!mounted) {
+        dispose = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.listen)(button, "click",
+        /*onSubmit*/
+        ctx[4]);
+        mounted = true;
+      }
+    },
+    p: svelte_internal__WEBPACK_IMPORTED_MODULE_0__.noop,
+    d: function d(detaching) {
+      if (detaching) (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.detach)(button);
+      mounted = false;
+      dispose();
+    }
+  };
+}
+
+function create_fragment(ctx) {
+  var div4;
+  var div0;
+  var t1;
+  var div1;
+  var t2;
+  var div2;
+  var label0;
+  var t4;
+  var br0;
+  var t5;
+  var input;
+  var t6;
+  var div3;
+  var label1;
+  var t8;
+  var br1;
+  var t9;
+  var textarea;
+  var t10;
+  var mounted;
+  var dispose;
+  var if_block0 =
+  /*resultMessage*/
+  ctx[1] !== '' && create_if_block_2(ctx);
+
+  function select_block_type(ctx, dirty) {
+    if (
+    /*isModeCreate*/
+    ctx[2]) return create_if_block;
+    if (
+    /*isModeEdit*/
+    ctx[3]) return create_if_block_1;
+  }
+
+  var current_block_type = select_block_type(ctx, -1);
+  var if_block1 = current_block_type && current_block_type(ctx);
+  return {
+    c: function c() {
+      div4 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.element)("div");
+      div0 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.element)("div");
+      div0.textContent = "（ArticleInput）";
+      t1 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.space)();
+      div1 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.element)("div");
+      if (if_block0) if_block0.c();
+      t2 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.space)();
+      div2 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.element)("div");
+      label0 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.element)("label");
+      label0.textContent = "タイトル";
+      t4 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.space)();
+      br0 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.element)("br");
+      t5 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.space)();
+      input = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.element)("input");
+      t6 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.space)();
+      div3 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.element)("div");
+      label1 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.element)("label");
+      label1.textContent = "本文";
+      t8 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.space)();
+      br1 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.element)("br");
+      t9 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.space)();
+      textarea = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.element)("textarea");
+      t10 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.space)();
+      if (if_block1) if_block1.c();
+      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.attr)(div0, "class", "pb-4 text-sm");
+      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.attr)(label0, "for", "title");
+      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.attr)(input, "id", "title");
+      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.attr)(input, "type", "text");
+      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.attr)(input, "class", "border w-full p-1");
+      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.attr)(div2, "class", "mb-3");
+      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.attr)(label1, "for", "content");
+      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.attr)(textarea, "id", "content");
+      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.attr)(textarea, "rows", "7");
+      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.attr)(textarea, "class", "border w-full p-1");
+      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.attr)(div3, "class", "mb-4");
+    },
+    m: function m(target, anchor) {
+      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.insert)(target, div4, anchor);
+      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(div4, div0);
+      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(div4, t1);
+      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(div4, div1);
+      if (if_block0) if_block0.m(div1, null);
+      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(div4, t2);
+      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(div4, div2);
+      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(div2, label0);
+      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(div2, t4);
+      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(div2, br0);
+      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(div2, t5);
+      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(div2, input);
+      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.set_input_value)(input,
+      /*params*/
+      ctx[0].title);
+      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(div4, t6);
+      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(div4, div3);
+      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(div3, label1);
+      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(div3, t8);
+      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(div3, br1);
+      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(div3, t9);
+      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(div3, textarea);
+      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.set_input_value)(textarea,
+      /*params*/
+      ctx[0].content);
+      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(div4, t10);
+      if (if_block1) if_block1.m(div4, null);
+
+      if (!mounted) {
+        dispose = [(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.listen)(input, "input",
+        /*input_input_handler*/
+        ctx[5]), (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.listen)(textarea, "input",
+        /*textarea_input_handler*/
+        ctx[6])];
+        mounted = true;
+      }
+    },
+    p: function p(ctx, _ref) {
+      var _ref2 = _slicedToArray(_ref, 1),
+          dirty = _ref2[0];
+
+      if (
+      /*resultMessage*/
+      ctx[1] !== '') {
+        if (if_block0) {
+          if_block0.p(ctx, dirty);
+        } else {
+          if_block0 = create_if_block_2(ctx);
+          if_block0.c();
+          if_block0.m(div1, null);
+        }
+      } else if (if_block0) {
+        if_block0.d(1);
+        if_block0 = null;
+      }
+
+      if (dirty &
+      /*params*/
+      1 && input.value !==
+      /*params*/
+      ctx[0].title) {
+        (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.set_input_value)(input,
+        /*params*/
+        ctx[0].title);
+      }
+
+      if (dirty &
+      /*params*/
+      1) {
+        (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.set_input_value)(textarea,
+        /*params*/
+        ctx[0].content);
+      }
+
+      if (current_block_type === (current_block_type = select_block_type(ctx, dirty)) && if_block1) {
+        if_block1.p(ctx, dirty);
+      } else {
+        if (if_block1) if_block1.d(1);
+        if_block1 = current_block_type && current_block_type(ctx);
+
+        if (if_block1) {
+          if_block1.c();
+          if_block1.m(div4, null);
+        }
+      }
+    },
+    i: svelte_internal__WEBPACK_IMPORTED_MODULE_0__.noop,
+    o: svelte_internal__WEBPACK_IMPORTED_MODULE_0__.noop,
+    d: function d(detaching) {
+      if (detaching) (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.detach)(div4);
+      if (if_block0) if_block0.d();
+
+      if (if_block1) {
+        if_block1.d();
+      }
+
+      mounted = false;
+      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.run_all)(dispose);
+    }
+  };
+}
+
+function instance($$self, $$props, $$invalidate) {
+  var dispatch = (0,svelte__WEBPACK_IMPORTED_MODULE_1__.createEventDispatcher)();
+  var _$$props$params = $$props.params,
+      params = _$$props$params === void 0 ? {
+    // 親コンポーネントからアクセスできるように props 化
+    id: '',
+    title: '',
+    content: ''
+  } : _$$props$params;
+  var resultMessage = '';
+  var isModeCreate = false;
+  var isModeEdit = false;
+
+  var onSubmit = function onSubmit() {
+    if (confirm('送信します。よろしいですか？')) {
+      var url = '';
+      var additionalParams = {};
+
+      if (isModeCreate) {
+        url = '/tweets';
+      } else if (isModeEdit) {
+        url = "/tweets/".concat(params.id);
+        additionalParams = {
+          _method: 'PUT'
+        };
+      }
+
+      var data = Object.assign({}, params, additionalParams);
+      axios.post(url, data).then(function (response) {
+        if (response.data.result === true) {
+          dispatch('tweets-saved');
+          $$invalidate(1, resultMessage = '保存が完了しました！');
+          setTimeout(function () {
+            // 3 秒後にメッセージをクリア
+            $$invalidate(1, resultMessage = '');
+          }, 3000);
+          $$invalidate(0, params = {
+            id: '',
+            title: '',
+            content: ''
+          });
+        }
+      });
+    }
+  };
+
+  function input_input_handler() {
+    params.title = this.value;
+    $$invalidate(0, params);
+  }
+
+  function textarea_input_handler() {
+    params.content = this.value;
+    $$invalidate(0, params);
+  }
+
+  $$self.$$set = function ($$props) {
+    if ('params' in $$props) $$invalidate(0, params = $$props.params);
+  };
+
+  $$self.$$.update = function () {
+    if ($$self.$$.dirty &
+    /*params*/
+    1) {
+      // Vue で言うところの computed
+      $: {
+        $$invalidate(2, isModeCreate = params.id === '');
+        $$invalidate(3, isModeEdit = params.id !== '');
+      }
+    }
+  };
+
+  return [params, resultMessage, isModeCreate, isModeEdit, onSubmit, input_input_handler, textarea_input_handler];
+}
+
+var Create = /*#__PURE__*/function (_SvelteComponent) {
+  _inherits(Create, _SvelteComponent);
+
+  var _super = _createSuper(Create);
+
+  function Create(options) {
+    var _this;
+
+    _classCallCheck(this, Create);
+
+    _this = _super.call(this);
+    (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.init)(_assertThisInitialized(_this), options, instance, create_fragment, svelte_internal__WEBPACK_IMPORTED_MODULE_0__.safe_not_equal, {
+      params: 0
+    });
+    return _this;
+  }
+
+  return _createClass(Create);
+}(svelte_internal__WEBPACK_IMPORTED_MODULE_0__.SvelteComponent);
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Create);
 
 /***/ }),
 
@@ -2356,9 +2820,9 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 function get_each_context(ctx, list, i) {
   var child_ctx = ctx.slice();
-  child_ctx[9] = list[i];
+  child_ctx[11] = list[i];
   return child_ctx;
-} // (42:8) {#each tweets as tweet}
+} // (54:8) {#each tweets as tweet}
 
 
 function create_each_block(ctx) {
@@ -2366,11 +2830,16 @@ function create_each_block(ctx) {
   var td0;
   var t0_value =
   /*tweet*/
-  ctx[9].content + "";
+  ctx[11].content + "";
   var t0;
   var t1;
   var td1;
+  var button0;
+  var t3;
+  var button1;
   var t5;
+  var mounted;
+  var dispose;
   return {
     c: function c() {
       tr = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.element)("tr");
@@ -2378,9 +2847,17 @@ function create_each_block(ctx) {
       t0 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.text)(t0_value);
       t1 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.space)();
       td1 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.element)("td");
-      td1.innerHTML = "<button type=\"button\" class=\"bg-yellow-500 text-yellow-50 rounded p-2 text-xs\">\u5909\u66F4</button> \n                    <button type=\"button\" class=\"bg-red-600 text-red-50 rounded p-2 text-xs\">\u524A\u9664</button>";
+      button0 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.element)("button");
+      button0.textContent = "変更";
+      t3 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.space)();
+      button1 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.element)("button");
+      button1.textContent = "削除";
       t5 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.space)();
       (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.attr)(td0, "class", "border px-2 py-1");
+      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.attr)(button0, "type", "button");
+      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.attr)(button0, "class", "bg-yellow-500 text-yellow-50 rounded p-2 text-xs");
+      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.attr)(button1, "type", "button");
+      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.attr)(button1, "class", "bg-red-600 text-red-50 rounded p-2 text-xs");
       (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.attr)(td1, "class", "border px-2 py-1 text-right");
     },
     m: function m(target, anchor) {
@@ -2389,20 +2866,51 @@ function create_each_block(ctx) {
       (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(td0, t0);
       (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(tr, t1);
       (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(tr, td1);
+      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(td1, button0);
+      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(td1, t3);
+      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(td1, button1);
       (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(tr, t5);
+
+      if (!mounted) {
+        dispose = [(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.listen)(button0, "click", function () {
+          if ((0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.is_function)(
+          /*onEdit*/
+          ctx[3](
+          /*tweet*/
+          ctx[11])))
+            /*onEdit*/
+            ctx[3](
+            /*tweet*/
+            ctx[11]).apply(this, arguments);
+        }), (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.listen)(button1, "click", function () {
+          if ((0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.is_function)(
+          /*onDelete*/
+          ctx[4](
+          /*tweet*/
+          ctx[11])))
+            /*onDelete*/
+            ctx[4](
+            /*tweet*/
+            ctx[11]).apply(this, arguments);
+        })];
+        mounted = true;
+      }
     },
-    p: function p(ctx, dirty) {
+    p: function p(new_ctx, dirty) {
+      ctx = new_ctx;
       if (dirty &
       /*tweets*/
       1 && t0_value !== (t0_value =
       /*tweet*/
-      ctx[9].content + "")) (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.set_data)(t0, t0_value);
+      ctx[11].content + "")) (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.set_data)(t0, t0_value);
     },
     d: function d(detaching) {
       if (detaching) (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.detach)(tr);
+      mounted = false;
+      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.run_all)(dispose);
     }
   };
-} // (62:4) {#if hasPrevPage === true}
+} // (74:4) {#if hasPrevPage === true}
 
 
 function create_if_block_1(ctx) {
@@ -2422,7 +2930,7 @@ function create_if_block_1(ctx) {
       if (!mounted) {
         dispose = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.listen)(button, "click",
         /*click_handler*/
-        ctx[5]);
+        ctx[7]);
         mounted = true;
       }
     },
@@ -2433,7 +2941,7 @@ function create_if_block_1(ctx) {
       dispose();
     }
   };
-} // (69:4) {#if hasNextPage === true}
+} // (81:4) {#if hasNextPage === true}
 
 
 function create_if_block(ctx) {
@@ -2453,7 +2961,7 @@ function create_if_block(ctx) {
       if (!mounted) {
         dispose = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.listen)(button, "click",
         /*click_handler_1*/
-        ctx[6]);
+        ctx[8]);
         mounted = true;
       }
     },
@@ -2494,7 +3002,7 @@ function create_fragment(ctx) {
       div = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.element)("div");
       table = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.element)("table");
       thead = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.element)("thead");
-      thead.innerHTML = "<tr><th class=\"border p-2\">\u672C\u6587</th> \n            <th class=\"border p-2\">\u64CD\u4F5C</th></tr>";
+      thead.innerHTML = "<tr><th class=\"px-4 py-2\">\u672C\u6587</th> \n            <th class=\"px-4 py-2\">\u64CD\u4F5C</th></tr>";
       t3 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.space)();
       tbody = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.element)("tbody");
 
@@ -2506,7 +3014,7 @@ function create_fragment(ctx) {
       if (if_block0) if_block0.c();
       t5 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.space)();
       if (if_block1) if_block1.c();
-      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.attr)(table, "class", "w-full text-sm mb-5");
+      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.attr)(table, "class", "table-auto");
     },
     m: function m(target, anchor) {
       (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.insert)(target, div, anchor);
@@ -2529,8 +3037,8 @@ function create_fragment(ctx) {
           dirty = _ref2[0];
 
       if (dirty &
-      /*tweets*/
-      1) {
+      /*onDelete, tweets, onEdit*/
+      25) {
         each_value =
         /*tweets*/
         ctx[0];
@@ -2613,7 +3121,23 @@ function instance($$self, $$props, $$invalidate) {
       $$invalidate(1, hasPrevPage = response.data.prev_page_url !== null);
       $$invalidate(2, hasNextPage = response.data.next_page_url !== null);
     });
-    console.log(tweets);
+  };
+
+  var onEdit = function onEdit(tweet) {
+    dispatch('tweet-edit', {
+      tweet: tweet
+    });
+  };
+
+  var onDelete = function onDelete(tweet) {
+    if (confirm('削除します。よろしいですか？')) {
+      var url = "/tweets/".concat(tweet.id);
+      axios["delete"](url).then(function (response) {
+        if (response.data.result === true) {
+          getTweets();
+        }
+      });
+    }
   };
 
   var onMovePage = function onMovePage(mode) {
@@ -2639,7 +3163,7 @@ function instance($$self, $$props, $$invalidate) {
     return onMovePage('next');
   };
 
-  return [tweets, hasPrevPage, hasNextPage, onMovePage, getTweets, click_handler, click_handler_1];
+  return [tweets, hasPrevPage, hasNextPage, onEdit, onDelete, onMovePage, getTweets, click_handler, click_handler_1];
 }
 
 var TweetList = /*#__PURE__*/function (_SvelteComponent) {
@@ -2654,7 +3178,7 @@ var TweetList = /*#__PURE__*/function (_SvelteComponent) {
 
     _this = _super.call(this);
     (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.init)(_assertThisInitialized(_this), options, instance, create_fragment, svelte_internal__WEBPACK_IMPORTED_MODULE_0__.safe_not_equal, {
-      getTweets: 4
+      getTweets: 6
     });
     return _this;
   }
@@ -2662,7 +3186,7 @@ var TweetList = /*#__PURE__*/function (_SvelteComponent) {
   _createClass(TweetList, [{
     key: "getTweets",
     get: function get() {
-      return this.$$.ctx[4];
+      return this.$$.ctx[6];
     }
   }]);
 

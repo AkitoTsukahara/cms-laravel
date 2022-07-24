@@ -14,7 +14,19 @@
       hasPrevPage = response.data.prev_page_url !== null;
       hasNextPage = response.data.next_page_url !== null;
     });
-    console.log(tweets);
+  };
+  const onEdit = tweet => {
+    dispatch('tweet-edit', { tweet: tweet });
+  };
+  const onDelete = tweet => {
+    if (confirm('削除します。よろしいですか？')) {
+      const url = `/tweets/${tweet.id}`;
+      axios.delete(url).then(response => {
+        if (response.data.result === true) {
+          getTweets();
+        }
+      });
+    }
   };
   const onMovePage = mode => {
     if (mode === 'next') {
@@ -31,11 +43,11 @@
 </script>
 
 <div>
-    <table class="w-full text-sm mb-5">
+    <table class="table-auto">
         <thead>
         <tr>
-            <th class="border p-2">本文</th>
-            <th class="border p-2">操作</th>
+            <th class="px-4 py-2">本文</th>
+            <th class="px-4 py-2">操作</th>
         </tr>
         </thead>
         <tbody>
@@ -45,12 +57,12 @@
                 <td class="border px-2 py-1 text-right">
                     <button
                             type="button"
-                            class="bg-yellow-500 text-yellow-50 rounded p-2 text-xs">
+                            class="bg-yellow-500 text-yellow-50 rounded p-2 text-xs" on:click={onEdit(tweet)}>
                         変更
                     </button>
                     <button
                             type="button"
-                            class="bg-red-600 text-red-50 rounded p-2 text-xs">
+                            class="bg-red-600 text-red-50 rounded p-2 text-xs" on:click={onDelete(tweet)}>
                         削除
                     </button>
                 </td>

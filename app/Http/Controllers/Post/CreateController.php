@@ -16,6 +16,6 @@ class CreateController extends Controller
      */
     public function __invoke(CreateRequest $request)
     {
-        //
+        return $this->input('post');
     }
 }
