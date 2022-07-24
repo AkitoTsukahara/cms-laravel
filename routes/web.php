@@ -26,3 +26,4 @@ Route::post('/posts/create', \App\Http\Controllers\Post\CreateController::class)
 Route::get('/tweets', \App\Http\Controllers\Tweet\IndexController::class)->name('tweet.index');
 Route::get('/tweets/list', \App\Http\Controllers\Tweet\ListController::class);
 Route::post('/tweets/create', \App\Http\Controllers\Tweet\CreateController::class)->name('tweet.create');
+Route::post('/tweets/update/{id}', \App\Http\Controllers\Tweet\Update\PutController::class)->name('tweet.update');

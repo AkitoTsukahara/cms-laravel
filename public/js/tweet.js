@@ -2428,7 +2428,7 @@ function create_if_block_2(ctx) {
       if (detaching) (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.detach)(div);
     }
   };
-} // (75:25) 
+} // (72:25) 
 
 
 function create_if_block_1(ctx) {
@@ -2459,7 +2459,7 @@ function create_if_block_1(ctx) {
       dispose();
     }
   };
-} // (73:4) {#if isModeCreate}
+} // (70:4) {#if isModeCreate}
 
 
 function create_if_block(ctx) {
@@ -2642,18 +2642,14 @@ function instance($$self, $$props, $$invalidate) {
   var onSubmit = function onSubmit() {
     if (confirm('送信します。よろしいですか？')) {
       var url = '';
-      var additionalParams = {};
 
       if (isModeCreate) {
         url = '/tweets/create';
       } else if (isModeEdit) {
-        url = "/tweets/".concat(params.id);
-        additionalParams = {
-          _method: 'PUT'
-        };
+        url = "/tweets/update/".concat(params.id);
       }
 
-      var data = Object.assign({}, params, additionalParams);
+      var data = Object.assign({}, params);
       axios.post(url, data).then(function (response) {
         if (response.data.result === true) {
           dispatch('tweet-saved');
@@ -2663,7 +2659,7 @@ function instance($$self, $$props, $$invalidate) {
             $$invalidate(1, resultMessage = '');
           }, 3000);
           $$invalidate(0, params = {
-            // id: '',
+            id: '',
             content: ''
           });
         }

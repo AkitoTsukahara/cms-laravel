@@ -22,16 +22,14 @@
     if (confirm('送信します。よろしいですか？')) {
 
       let url = '';
-      let additionalParams = {};
 
       if (isModeCreate) {
         url = '/tweets/create';
       } else if (isModeEdit) {
-        url = `/tweets/${params.id}`;
-        additionalParams = { _method: 'PUT' };
+        url = `/tweets/update/${params.id}`;
       }
 
-      const data = Object.assign({}, params, additionalParams);
+      const data = Object.assign({}, params);
       axios.post(url, data).then(response => {
         if (response.data.result === true) {
           dispatch('tweet-saved');
@@ -40,10 +38,9 @@
             resultMessage = '';
           }, 3000);
           params = {
-            // id: '',
+            id: '',
             content: '',
           };
-
         }
 
       });
