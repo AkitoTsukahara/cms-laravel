@@ -38,7 +38,6 @@
   };
   onMount(() => {
     getTweets();
-    console.dir(tweets);
   });
 </script>
 

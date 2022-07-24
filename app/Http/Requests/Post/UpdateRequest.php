@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Requests\Tweet;
+namespace App\Http\Requests\Post;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class CreateRequest extends FormRequest
+class UpdateRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -13,7 +13,7 @@ class CreateRequest extends FormRequest
      */
     public function authorize()
     {
-        return true;
+        return false;
     }
 
     /**
@@ -24,13 +24,7 @@ class CreateRequest extends FormRequest
     public function rules()
     {
         return [
-            'id' => 'nullable',
-            'content' => 'required|max:140'
+            //
         ];
-    }
-
-    public function content(): string
-    {
-        return $this->input('content');
     }
 }

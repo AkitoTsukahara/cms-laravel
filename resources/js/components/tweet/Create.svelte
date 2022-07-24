@@ -3,9 +3,8 @@
   import { createEventDispatcher } from 'svelte';
 
   const dispatch = createEventDispatcher();
-  export let params = { // 親コンポーネントからアクセスできるように props 化
+  export let params = {
     id: '',
-    title: '',
     content: '',
   };
   let resultMessage = '';
@@ -26,7 +25,7 @@
       let additionalParams = {};
 
       if (isModeCreate) {
-        url = '/tweets';
+        url = '/tweets/create';
       } else if (isModeEdit) {
         url = `/tweets/${params.id}`;
         additionalParams = { _method: 'PUT' };
@@ -35,14 +34,13 @@
       const data = Object.assign({}, params, additionalParams);
       axios.post(url, data).then(response => {
         if (response.data.result === true) {
-          dispatch('tweets-saved');
+          dispatch('tweet-saved');
           resultMessage = '保存が完了しました！';
           setTimeout(() => { // 3 秒後にメッセージをクリア
             resultMessage = '';
           }, 3000);
           params = {
-            id: '',
-            title: '',
+            // id: '',
             content: '',
           };
 
@@ -66,11 +64,6 @@
                 {resultMessage}
             </div>
         {/if}
-    </div>
-    <div class="mb-3">
-        <label for="title">タイトル</label>
-        <br>
-        <input id="title" type="text" class="border w-full p-1" bind:value="{params.title}">
     </div>
     <div class="mb-4">
         <label for="content">本文</label>

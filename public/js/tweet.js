@@ -2226,7 +2226,10 @@ function create_fragment(ctx) {
   });
   /*tweetlist_binding*/
 
-  ctx[2](tweetlist);
+  ctx[3](tweetlist);
+  tweetlist.$on("tweet-edit",
+  /*onEdit*/
+  ctx[2]);
   create = new _tweet_Create_svelte__WEBPACK_IMPORTED_MODULE_2__["default"]({
     props: {
       params:
@@ -2234,12 +2237,12 @@ function create_fragment(ctx) {
       ctx[1]
     }
   });
-  create.$on("article-saved", function () {
+  create.$on("tweet-saved", function () {
     if ((0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.is_function)(
     /*tweetList*/
-    ctx[0].getArticles))
+    ctx[0].getTweets))
       /*tweetList*/
-      ctx[0].getArticles.apply(this, arguments);
+      ctx[0].getTweets.apply(this, arguments);
   });
   return {
     c: function c() {
@@ -2298,7 +2301,7 @@ function create_fragment(ctx) {
       if (detaching) (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.detach)(div3);
       /*tweetlist_binding*/
 
-      ctx[2](null);
+      ctx[3](null);
       (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.destroy_component)(tweetlist);
       (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.destroy_component)(create);
     }
@@ -2309,7 +2312,6 @@ function instance($$self, $$props, $$invalidate) {
   var tweetList;
   var params = {
     id: '',
-    title: '',
     content: ''
   };
 
@@ -2324,7 +2326,7 @@ function instance($$self, $$props, $$invalidate) {
     });
   }
 
-  return [tweetList, params, tweetlist_binding];
+  return [tweetList, params, onEdit, tweetlist_binding];
 }
 
 var Tweet = /*#__PURE__*/function (_SvelteComponent) {
@@ -2426,7 +2428,7 @@ function create_if_block_2(ctx) {
       if (detaching) (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.detach)(div);
     }
   };
-} // (82:25) 
+} // (75:25) 
 
 
 function create_if_block_1(ctx) {
@@ -2457,7 +2459,7 @@ function create_if_block_1(ctx) {
       dispose();
     }
   };
-} // (80:4) {#if isModeCreate}
+} // (73:4) {#if isModeCreate}
 
 
 function create_if_block(ctx) {
@@ -2491,25 +2493,18 @@ function create_if_block(ctx) {
 }
 
 function create_fragment(ctx) {
-  var div4;
+  var div3;
   var div0;
   var t1;
   var div1;
   var t2;
   var div2;
-  var label0;
+  var label;
   var t4;
-  var br0;
+  var br;
   var t5;
-  var input;
-  var t6;
-  var div3;
-  var label1;
-  var t8;
-  var br1;
-  var t9;
   var textarea;
-  var t10;
+  var t6;
   var mounted;
   var dispose;
   var if_block0 =
@@ -2529,7 +2524,7 @@ function create_fragment(ctx) {
   var if_block1 = current_block_type && current_block_type(ctx);
   return {
     c: function c() {
-      div4 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.element)("div");
+      div3 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.element)("div");
       div0 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.element)("div");
       div0.textContent = "（ArticleInput）";
       t1 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.space)();
@@ -2537,69 +2532,44 @@ function create_fragment(ctx) {
       if (if_block0) if_block0.c();
       t2 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.space)();
       div2 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.element)("div");
-      label0 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.element)("label");
-      label0.textContent = "タイトル";
+      label = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.element)("label");
+      label.textContent = "本文";
       t4 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.space)();
-      br0 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.element)("br");
+      br = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.element)("br");
       t5 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.space)();
-      input = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.element)("input");
-      t6 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.space)();
-      div3 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.element)("div");
-      label1 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.element)("label");
-      label1.textContent = "本文";
-      t8 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.space)();
-      br1 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.element)("br");
-      t9 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.space)();
       textarea = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.element)("textarea");
-      t10 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.space)();
+      t6 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.space)();
       if (if_block1) if_block1.c();
       (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.attr)(div0, "class", "pb-4 text-sm");
-      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.attr)(label0, "for", "title");
-      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.attr)(input, "id", "title");
-      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.attr)(input, "type", "text");
-      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.attr)(input, "class", "border w-full p-1");
-      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.attr)(div2, "class", "mb-3");
-      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.attr)(label1, "for", "content");
+      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.attr)(label, "for", "content");
       (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.attr)(textarea, "id", "content");
       (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.attr)(textarea, "rows", "7");
       (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.attr)(textarea, "class", "border w-full p-1");
-      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.attr)(div3, "class", "mb-4");
+      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.attr)(div2, "class", "mb-4");
     },
     m: function m(target, anchor) {
-      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.insert)(target, div4, anchor);
-      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(div4, div0);
-      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(div4, t1);
-      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(div4, div1);
+      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.insert)(target, div3, anchor);
+      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(div3, div0);
+      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(div3, t1);
+      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(div3, div1);
       if (if_block0) if_block0.m(div1, null);
-      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(div4, t2);
-      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(div4, div2);
-      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(div2, label0);
+      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(div3, t2);
+      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(div3, div2);
+      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(div2, label);
       (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(div2, t4);
-      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(div2, br0);
+      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(div2, br);
       (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(div2, t5);
-      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(div2, input);
-      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.set_input_value)(input,
-      /*params*/
-      ctx[0].title);
-      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(div4, t6);
-      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(div4, div3);
-      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(div3, label1);
-      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(div3, t8);
-      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(div3, br1);
-      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(div3, t9);
-      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(div3, textarea);
+      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(div2, textarea);
       (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.set_input_value)(textarea,
       /*params*/
       ctx[0].content);
-      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(div4, t10);
-      if (if_block1) if_block1.m(div4, null);
+      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(div3, t6);
+      if (if_block1) if_block1.m(div3, null);
 
       if (!mounted) {
-        dispose = [(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.listen)(input, "input",
-        /*input_input_handler*/
-        ctx[5]), (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.listen)(textarea, "input",
+        dispose = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.listen)(textarea, "input",
         /*textarea_input_handler*/
-        ctx[6])];
+        ctx[5]);
         mounted = true;
       }
     },
@@ -2624,16 +2594,6 @@ function create_fragment(ctx) {
 
       if (dirty &
       /*params*/
-      1 && input.value !==
-      /*params*/
-      ctx[0].title) {
-        (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.set_input_value)(input,
-        /*params*/
-        ctx[0].title);
-      }
-
-      if (dirty &
-      /*params*/
       1) {
         (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.set_input_value)(textarea,
         /*params*/
@@ -2648,14 +2608,14 @@ function create_fragment(ctx) {
 
         if (if_block1) {
           if_block1.c();
-          if_block1.m(div4, null);
+          if_block1.m(div3, null);
         }
       }
     },
     i: svelte_internal__WEBPACK_IMPORTED_MODULE_0__.noop,
     o: svelte_internal__WEBPACK_IMPORTED_MODULE_0__.noop,
     d: function d(detaching) {
-      if (detaching) (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.detach)(div4);
+      if (detaching) (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.detach)(div3);
       if (if_block0) if_block0.d();
 
       if (if_block1) {
@@ -2663,7 +2623,7 @@ function create_fragment(ctx) {
       }
 
       mounted = false;
-      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.run_all)(dispose);
+      dispose();
     }
   };
 }
@@ -2672,9 +2632,7 @@ function instance($$self, $$props, $$invalidate) {
   var dispatch = (0,svelte__WEBPACK_IMPORTED_MODULE_1__.createEventDispatcher)();
   var _$$props$params = $$props.params,
       params = _$$props$params === void 0 ? {
-    // 親コンポーネントからアクセスできるように props 化
     id: '',
-    title: '',
     content: ''
   } : _$$props$params;
   var resultMessage = '';
@@ -2687,7 +2645,7 @@ function instance($$self, $$props, $$invalidate) {
       var additionalParams = {};
 
       if (isModeCreate) {
-        url = '/tweets';
+        url = '/tweets/create';
       } else if (isModeEdit) {
         url = "/tweets/".concat(params.id);
         additionalParams = {
@@ -2698,26 +2656,20 @@ function instance($$self, $$props, $$invalidate) {
       var data = Object.assign({}, params, additionalParams);
       axios.post(url, data).then(function (response) {
         if (response.data.result === true) {
-          dispatch('tweets-saved');
+          dispatch('tweet-saved');
           $$invalidate(1, resultMessage = '保存が完了しました！');
           setTimeout(function () {
             // 3 秒後にメッセージをクリア
             $$invalidate(1, resultMessage = '');
           }, 3000);
           $$invalidate(0, params = {
-            id: '',
-            title: '',
+            // id: '',
             content: ''
           });
         }
       });
     }
   };
-
-  function input_input_handler() {
-    params.title = this.value;
-    $$invalidate(0, params);
-  }
 
   function textarea_input_handler() {
     params.content = this.value;
@@ -2740,7 +2692,7 @@ function instance($$self, $$props, $$invalidate) {
     }
   };
 
-  return [params, resultMessage, isModeCreate, isModeEdit, onSubmit, input_input_handler, textarea_input_handler];
+  return [params, resultMessage, isModeCreate, isModeEdit, onSubmit, textarea_input_handler];
 }
 
 var Create = /*#__PURE__*/function (_SvelteComponent) {
@@ -2822,7 +2774,7 @@ function get_each_context(ctx, list, i) {
   var child_ctx = ctx.slice();
   child_ctx[11] = list[i];
   return child_ctx;
-} // (54:8) {#each tweets as tweet}
+} // (53:8) {#each tweets as tweet}
 
 
 function create_each_block(ctx) {
@@ -2910,7 +2862,7 @@ function create_each_block(ctx) {
       (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.run_all)(dispose);
     }
   };
-} // (74:4) {#if hasPrevPage === true}
+} // (73:4) {#if hasPrevPage === true}
 
 
 function create_if_block_1(ctx) {
@@ -2941,7 +2893,7 @@ function create_if_block_1(ctx) {
       dispose();
     }
   };
-} // (81:4) {#if hasNextPage === true}
+} // (80:4) {#if hasNextPage === true}
 
 
 function create_if_block(ctx) {
@@ -3152,7 +3104,6 @@ function instance($$self, $$props, $$invalidate) {
 
   (0,svelte__WEBPACK_IMPORTED_MODULE_1__.onMount)(function () {
     getTweets();
-    console.dir(tweets);
   });
 
   var click_handler = function click_handler() {
