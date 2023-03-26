@@ -2231,7 +2231,7 @@ function create_fragment(ctx) {
       t1 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.space)();
       div3 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.element)("div");
       h11 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.element)("h1");
-      h11.textContent = "Tweet タイトルです";
+      h11.textContent = "Tweet タイトルです（Svelte側です！）";
       t3 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.space)();
       div2 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.element)("div");
       div1 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.element)("div");

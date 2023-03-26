@@ -13,7 +13,7 @@
   };
 </script>
 <div>
-    <h1 class="text-3xl mb-4">Tweet タイトルです</h1>
+    <h1 class="text-3xl mb-4">Tweet一覧（Svelte側です！）</h1>
     <div class="grid grid-cols-2 gap-7">
         <div>
             <TweetList bind:this={tweetList} on:tweet-edit={onEdit}/>

@@ -21,3 +21,9 @@ composer:  ## dockerのdb操作
 
 mysql:  ## dockerのdb操作
 	./vendor/bin/sail mysql
+
+migrate:  ## DBマイグレーションを実行する
+	./vendor/bin/sail php artisan migrate
+
+migrate_seed:  ## DBマイグレーション（fresh）とシードを実行する
+	./vendor/bin/sail php artisan migrate:fresh --seed --drop-views

@@ -10,14 +10,14 @@ mix.js('resources/js/tweet.js', 'public/js').svelte();
 //     'resources/css/app.css', 'public/css', [
 //       require('tailwindcss'),
 //     ],
-// ).svelte();
+// );
 // mix.js('resources/js/post.js', 'public/js').postCss(
 //     'resources/css/app.css', 'public/css', [
 //       require('tailwindcss'),
 //     ],
-// ).svelte();
+// );
 // mix.js('resources/js/tweet.js', 'public/js').postCss(
 //     'resources/css/app.css', 'public/css', [
 //       require('tailwindcss'),
 //     ],
-// ).svelte();
+// );

@@ -20,8 +20,8 @@
   };
   const onDelete = tweet => {
     if (confirm('削除します。よろしいですか？')) {
-      const url = `/tweets/${tweet.id}`;
-      axios.delete(url).then(response => {
+      const url = `/tweets/delete/${tweet.id}`;
+      axios.post(url).then(response => {
         if (response.data.result === true) {
           getTweets();
         }

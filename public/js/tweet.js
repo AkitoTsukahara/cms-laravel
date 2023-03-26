@@ -2248,7 +2248,7 @@ function create_fragment(ctx) {
     c: function c() {
       div3 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.element)("div");
       h1 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.element)("h1");
-      h1.textContent = "Tweet タイトルです";
+      h1.textContent = "Tweet一覧（Svelte側です！）";
       t1 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.space)();
       div2 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.element)("div");
       div0 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.element)("div");
@@ -3079,8 +3079,8 @@ function instance($$self, $$props, $$invalidate) {
 
   var onDelete = function onDelete(tweet) {
     if (confirm('削除します。よろしいですか？')) {
-      var url = "/tweets/".concat(tweet.id);
-      axios["delete"](url).then(function (response) {
+      var url = "/tweets/delete/".concat(tweet.id);
+      axios.post(url).then(function (response) {
         if (response.data.result === true) {
           getTweets();
         }

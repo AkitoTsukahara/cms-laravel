@@ -4,7 +4,7 @@
   let postList;
 </script>
 <div>
-    <h1>Tweet タイトルです</h1>
+    <h1>Post タイトルです（Svelte側です！）</h1>
     <div class="grid grid-cols-2 gap-7">
         <div>
             <PostList bind:this={postList}/>
