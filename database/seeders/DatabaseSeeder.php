@@ -24,6 +24,7 @@ class DatabaseSeeder extends Seeder
         $this->call([
             TweetsSeeder::class,
             PostsSeeder::class,
+            FeatureFlagSeeder::class,
         ]);
     }
 }
