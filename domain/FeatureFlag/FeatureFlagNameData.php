@@ -2,9 +2,11 @@
 
 declare(strict_types=1);
 
-namespace domain\FeatureFlag;
+namespace Domain\FeatureFlag;
 
-class FeatureFlagNameData
+use Domain\Base\BaseStringValue;
+
+class FeatureFlagNameData extends BaseStringValue implements FeatureFlagNameInterface
 {
 
 }

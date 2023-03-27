@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\domain\FeatureFlag;
+namespace Domain\FeatureFlag;
 
 class UpdateMessage
 {
