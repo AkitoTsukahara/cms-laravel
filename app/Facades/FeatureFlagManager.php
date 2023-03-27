@@ -4,7 +4,15 @@ declare(strict_types=1);
 
 namespace App\Facades;
 
-class FeatureFlagManager
-{
+use Illuminate\Support\Facades\Facade;
 
+/**
+ * @see \App\FeatureFlag\FeatureFlagManager
+ */
+class FeatureFlagManager extends Facade
+{
+    protected static function getFacadeAccessor(): string
+    {
+        return 'FeatureFlagManager';
+    }
 }

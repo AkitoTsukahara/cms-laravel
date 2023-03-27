@@ -28,3 +28,6 @@ Route::get('/tweets/list', \App\Http\Controllers\Tweet\ListController::class);
 Route::post('/tweets/create', \App\Http\Controllers\Tweet\CreateController::class)->name('tweet.create');
 Route::post('/tweets/update/{id}', \App\Http\Controllers\Tweet\Update\PutController::class)->name('tweet.update');
 Route::post('/tweets/delete/{id}', \App\Http\Controllers\Tweet\DeleteController::class)->name('tweet.delete');
+
+Route::get('/feature-flag', \App\Http\Controllers\FeatureFlag\IndexController::class)->name('feature-flag.index');
+Route::get('/feature-flag/update', \App\Http\Controllers\FeatureFlag\Update\IndexController::class)->name('feature-flag.update.index');
