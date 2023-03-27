@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\infra\EloquentRepository;
+namespace Infra\EloquentRepository;
 
 use Domain\Exception\NotFoundException;
 use Domain\FeatureFlag\FeatureFlag;

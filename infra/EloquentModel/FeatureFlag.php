@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\infra\EloquentModel;
+namespace Infra\EloquentModel;
 
 use Domain\Base\Domainable;
 use Domain\FeatureFlag\FeatureFlag as FeatureFlagDomain;
