@@ -2,9 +2,8 @@
 
 declare(strict_types=1);
 
-namespace domain\Exception;
+namespace Domain\Exception;
 
-class InvalidArgumentException
+class InvalidArgumentException extends \InvalidArgumentException
 {
-
 }
