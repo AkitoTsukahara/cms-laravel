@@ -2,8 +2,11 @@
 
 declare(strict_types=1);
 
+namespace Domain\Common;
 
-class CommonTime
+use Domain\Base\BaseTime;
+
+final class CommonTime extends BaseTime
 {
 
 }

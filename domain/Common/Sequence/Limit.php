@@ -2,8 +2,9 @@
 
 declare(strict_types=1);
 
+use Domain\Base\BaseNonNegativeIntValue;
 
-class Lmit
+class Limit extends BaseNonNegativeIntValue
 {
 
 }
